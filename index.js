@@ -19,6 +19,22 @@ const puppeteer = require('puppeteer');
 
     // console.log("The whole status is : " + wholeStatus);
 
+    
+    //Learnings (page.evaluate)
+    
+    
+    let name = 'jack';
+    let age  = 33;
+    let location = 'Berlin/Germany';
+
+    await page.evaluate(({name, age, location}) => {
+
+        console.log(name);
+        console.log(age);
+        console.log(location);
+
+    },{name, age, location});
+    
       // Define a window.onCustomEvent function on the page.
     await page.exposeFunction('onCustomEvent', e => {
         console.log(`${e.type} fired`, e.detail || '');
